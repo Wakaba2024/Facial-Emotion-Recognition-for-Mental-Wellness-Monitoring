@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: facial-emotion-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:5000"
+    plan: free
