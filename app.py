@@ -69,5 +69,6 @@ def predict():
     return jsonify({"emotion": label})
 
 if __name__ == "__main__":
-    print("✅ Flask app is starting...")
-    app.run(debug=True, port=5000)
+    print("✅ Facial Emotion Recognition API is running!")
+    app.run(debug=False, host="0.0.0.0", port=7860)
+
