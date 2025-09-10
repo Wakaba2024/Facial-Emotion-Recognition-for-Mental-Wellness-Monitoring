@@ -1,19 +1,22 @@
 # 🎭 Facial Emotion Recognition API & Web App
 
-This project is a **deep learning-based facial emotion recognition system** built with **TensorFlow/Keras**, **Flask**, and **OpenCV**.  
-It allows users to upload an image and receive the predicted **emotion** (Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral).  
+## Overview
+
+This project is a **Facial Emotion Recognition (FER) system** designed to detect human emotions from facial images and provide insights for **mental wellness applications**.  
+It combines **deep learning (TensorFlow/Keras)** for model training, a **Flask API** for serving predictions, and is deployed on **Render** for cloud accessibility.  
 
 You can interact with it via:  
 - 🌐 **Web Form** → Upload an image & see prediction
 
 - ## 🚀 Features
+- - Detects **7 emotions**: Angry, Disgust, Fear, Happy, Sad, Surprise, Neutral  
 - Train a **CNN model** on the FER dataset (from https://datasets.activeloop.ai/docs/ml/datasets/fer2013-dataset/).  
 - Save & load the model (`.keras` format).  
 - Flask API with endpoints:  
   - `/` → Health check  
   - `/predict` → JSON prediction endpoint  
   - `/upload` → Web UI for uploading images  
-- Deployable on **Render**, **Hugging Face Spaces**, or **Docker**.  (Render Was Used For This Application)
+- **Deployed on Render** for public access  
 - Supports both **pip** and **uv** for dependency management.  
 
 ---
@@ -62,31 +65,18 @@ dependencies = [
 ## ⚙️ Usage and Setup  
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/):  
-   ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```  
-   or on Windows:  
-   ```powershell
-   powershell -ExecutionPolicy Bypass -c "irm https://astral.sh/uv/install.ps1 | iex"
-   ```
-
+  
 2. Clone the project:  
    ```bash
    git clone https://github.com/your-username/facial-emotion-api.git
    cd facial-emotion-api
    ```
 
-3. Sync dependencies:  
-   ```bash
-   uv sync
-   ```
-
-4. Run locally:  
+3. Run locally:  
    ```bash
    uv run python app.py
    ```
-   App will be available at:  
-   👉 http://127.0.0.1:5000  
+   
 
 ---
 
@@ -102,8 +92,40 @@ dependencies = [
 ---
 
 
-## 📊 Monitoring & Logs  
-- Flask prints logs to console (visible in Render dashboard).  
+## Results  
+
+From the training and evaluation in the notebook file:  
+
+- **Training Accuracy:** ~92%  
+- **Validation Accuracy:** ~66%  
+- **Test Accuracy:** ~65%  
+- **Loss Trend:** Training loss decreased steadily, validation loss plateaued after ~20 epochs.  
+
+### Confusion Matrix Insights  
+- Best performance on **Happy** and **Angry**  
+- Most misclassifications between **Sad ↔ Neutral** and **Fear ↔ Surprise**  
+
+### Example Predictions  
+- Smiling face → **Happy (95% confidence)**  
+- Frowning face → **Sad (88% confidence)**  
+- Neutral face → **Neutral (81% confidence)**  
+
+---
+
+## Deployment on Render  
+
+This project is live on **Render**, making the model accessible via the cloud.  
+
+### Deployment Steps  
+
+1. Push your project to GitHub  
+2. Create a new **Web Service** on [Render](https://render.com/)  
+3. Connect your GitHub repository  
+4. In the Render dashboard:  
+5. Render provides a public URL (e.g., `https://fer-mental-wellness.onrender.com`)  
+
+---
+
 
 
 
