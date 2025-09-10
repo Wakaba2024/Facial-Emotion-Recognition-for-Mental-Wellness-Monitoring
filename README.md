@@ -59,7 +59,7 @@ dependencies = [
 
 ---
 
-## ⚙️ Setup  
+## ⚙️ Usage and Setup  
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/):  
    ```bash
@@ -104,6 +104,7 @@ dependencies = [
 
 ## 📊 Monitoring & Logs  
 - Flask prints logs to console (visible in Render dashboard).  
+
 
 
 
